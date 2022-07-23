@@ -1,7 +1,9 @@
-import { VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { OptionCard } from "../components/card";
+import { VStack } from "@chakra-ui/react";
+
+// Components
 import { DashboardLayout } from "../components/layouts";
+import { OptionCard } from "../components/card";
 
 // Types
 type Props = {};
