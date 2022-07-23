@@ -25,7 +25,7 @@ const FormLayout = ({ heading, children }: Props) => {
       <Flex h="30vh" alignItems="center" justifyContent="center">
         <PageHeading>{heading}</PageHeading>
       </Flex>
-      <Box h="70vh" bg="white" borderTopRadius="xl">
+      <Box h="70vh" bg="white" borderTopRadius="xl" pos="relative">
         {children}
       </Box>
     </Box>

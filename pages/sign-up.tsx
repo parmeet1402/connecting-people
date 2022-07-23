@@ -1,17 +1,27 @@
+import { Box } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { FileUploadInput } from "../components/form";
 import { FormLayout } from "../components/layouts";
 
 type Props = {};
 
 const StepOne = ({ goAhead }: { goAhead: () => void }) => {
   return (
-    <div>
-      STEP ONE
-      {/*  - UPLOAD INPUT FORM */}
+    <Box>
+      <Box
+        pos="absolute"
+        top="2rem"
+        left="50%"
+        transform="translate(-50%, -50%)"
+        bg="white"
+        borderRadius="xl"
+      >
+        <FileUploadInput />
+      </Box>
       {/*  - NAME */}
       {/*  - EMAIL */}
       {/* NEXT BUTTON */}
-    </div>
+    </Box>
   );
 };
 
