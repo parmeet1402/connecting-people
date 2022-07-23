@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import { OptionCard } from "../components/card";
 import { DashboardLayout } from "../components/layouts";
 
+// Types
 type Props = {};
-
 type Option = {
   name: string;
   onClick: () => void;
 };
 
+// helpers
 const getPageHeading = (isLoggedIn: boolean): string => {
   if (isLoggedIn) {
     const username = "Harsh";
@@ -51,6 +52,7 @@ const getPageOptions = (isLoggedIn: boolean): Option[] => {
   ];
 };
 
+// Components
 const DashboardPage = (props: Props) => {
   const [isLoggedIn] = useState(false);
 
