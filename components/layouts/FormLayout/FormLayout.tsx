@@ -1,7 +1,9 @@
 import React from "react";
 import { Box, Flex, IconButton } from "@chakra-ui/react";
-import { PageHeading } from "../../layout";
 import { FiArrowLeft } from "react-icons/fi";
+
+// Components
+import { PageHeading } from "../../layout";
 
 type Props = {
   heading: string;
@@ -22,10 +24,10 @@ const FormLayout = ({ heading, children }: Props) => {
           icon={<FiArrowLeft size="1.2rem" />}
         />
       </Flex>
-      <Flex h="30vh" alignItems="center" justifyContent="center">
+      <Flex h="32vh" alignItems="center" justifyContent="center">
         <PageHeading>{heading}</PageHeading>
       </Flex>
-      <Box h="70vh" bg="white" borderTopRadius="xl" pos="relative">
+      <Box h="68vh" bg="white" borderTopRadius="xl" pos="relative">
         {children}
       </Box>
     </Box>

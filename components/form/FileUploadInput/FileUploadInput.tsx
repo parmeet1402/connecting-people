@@ -7,6 +7,8 @@ type Props = {};
 const FileUploadInput = (props: Props) => {
   return (
     <Flex
+      as="button"
+      type="button"
       h="36"
       w="36"
       alignItems="center"
@@ -15,7 +17,7 @@ const FileUploadInput = (props: Props) => {
       borderColor="black"
       borderRadius="xl"
     >
-      <FiPlus size="1.2rem" color="#000" />
+      <FiPlus size="2.5rem" color="#000" />
     </Flex>
   );
 };
