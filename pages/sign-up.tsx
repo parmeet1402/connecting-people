@@ -68,12 +68,11 @@ const StepTwo = () => {
           </Text>
           <HStack>
             <PinInput otp placeholder="">
-              <PinInputField borderColor="#808080" />
-              <PinInputField borderColor="#808080" />
-              <PinInputField borderColor="#808080" />
-              <PinInputField borderColor="#808080" />
-              <PinInputField borderColor="#808080" />
-              <PinInputField borderColor="#808080" />
+              <PinInputField borderColor="#808080" w="55px" h="61px" />
+              <PinInputField borderColor="#808080" w="55px" h="61px" />
+              <PinInputField borderColor="#808080" w="55px" h="61px" />
+              <PinInputField borderColor="#808080" w="55px" h="61px" />
+              <PinInputField borderColor="#808080" w="55px" h="61px" />
             </PinInput>
           </HStack>
         </VStack>
