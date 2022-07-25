@@ -6,7 +6,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: black;
   -webkit-tap-highlight-color: transparent;
-
+  box-sizing: border-box;
 }
 
 a {
