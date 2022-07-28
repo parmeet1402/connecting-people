@@ -45,7 +45,7 @@ const CallLayout = ({ heading, user: { name }, otherPeople }: Props) => {
       <Flex h="22vh" alignItems="center" justifyContent="center">
         <PageHeading>{heading}</PageHeading>
       </Flex>
-      <Box h="78vh" pb="100px" overflow="auto">
+      <Box h="calc(78vh - 84px)" mb="100px" overflow="auto">
         {otherPeople.map(people => (
           <Box
             key={people.id}
