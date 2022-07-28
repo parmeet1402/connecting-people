@@ -4,7 +4,30 @@ import { CallLayout } from "../../components/layouts";
 type Props = {};
 
 const MeetingRoom = (props: Props) => {
-  return <CallLayout heading="Arizona" otherPeople={[]} />;
+  return (
+    <CallLayout
+      heading="Arizona"
+      otherPeople={[
+        {
+          streams: [{}, {}],
+          name: "Sakshi Aggarwal",
+          id:"X24343",
+        },
+        {
+            streams: [{}, {}],
+            name: "Sakshi Aggarwal",
+            id:"X24333",
+        },
+        {
+            streams: [{}, {}],
+            name: "Sakshi Aggarwal",
+            id:"X14333",
+        },
+      ]}
+      user={{ name: "Harsh" }}
+      callStartTime={new Date()}
+    />
+  );
 };
 
 export default MeetingRoom;

@@ -6,10 +6,14 @@ import PageHeading from "../../layout/PageHeading";
 
 type Props = {
   heading: string;
-  otherPeople: any[];
+  otherPeople: { streams: any[]; name: string; id: string }[];
+  user: {
+    name: string;
+  };
+  callStartTime: Date;
 };
 
-const CallLayout = ({ heading }: Props) => {
+const CallLayout = ({ heading, user: { name }, otherPeople }: Props) => {
   return (
     <Box pos="relative">
       <Flex
@@ -41,11 +45,32 @@ const CallLayout = ({ heading }: Props) => {
       <Flex h="22vh" alignItems="center" justifyContent="center">
         <PageHeading>{heading}</PageHeading>
       </Flex>
-      <Box h="78vh">{/* Other People */}</Box>
+      <Box h="78vh" pb="100px" overflow="auto">
+        {otherPeople.map(people => (
+          <Box
+            key={people.id}
+            bgColor="cyan"
+            h="324px"
+            w="90%"
+            mb="1rem"
+            mx="auto"
+            borderRadius="xl"
+          >
+            <Box
+              bgColor="white"
+              w="fit-content"
+              borderRadius="xl"
+              px="2"
+              py="1"
+            >
+              <Text color="black">{people.name}</Text>
+            </Box>
+          </Box>
+        ))}
+      </Box>
       <Flex
-        pos="absolute"
+        pos="fixed"
         bottom="0"
-        // h="97px"
         h="84px"
         bgColor="white"
         w="100vw"
@@ -54,10 +79,9 @@ const CallLayout = ({ heading }: Props) => {
       >
         <Flex color="black" justifyContent="space-between" w="90%" mx="auto">
           <HStack>
-            {/* Replace with video */}
             <Avatar borderRadius="xl" name="dfdjkjk" />
             <Flex direction="column">
-              <Text lineHeight="1rem">Harsh</Text>
+              <Text lineHeight="1rem">{name}</Text>
               <Text color="blackAlpha.500" fontSize="sm">
                 0:24
               </Text>
@@ -79,7 +103,6 @@ const CallLayout = ({ heading }: Props) => {
           </HStack>
         </Flex>
       </Flex>
-      {/* Bottom Bar */}
     </Box>
   );
 };
