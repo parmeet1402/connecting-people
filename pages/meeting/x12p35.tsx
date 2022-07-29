@@ -10,17 +10,17 @@ const MeetingRoom = (props: Props) => {
       otherPeople={[
         {
           streams: [{}, {}],
-          name: "Sakshi Aggarwal",
+          name: "Rahul Dravid",
           id:"X24343",
         },
         {
             streams: [{}, {}],
-            name: "Sakshi Aggarwal",
+            name: "Rahul Dravid",
             id:"X24333",
         },
         {
             streams: [{}, {}],
-            name: "Sakshi Aggarwal",
+            name: "Rahul Dravid",
             id:"X14333",
         },
       ]}
