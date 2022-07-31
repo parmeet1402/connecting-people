@@ -3,6 +3,7 @@ import { Avatar, Box, Flex, HStack, IconButton, Text } from "@chakra-ui/react";
 import { FiArrowLeft, FiVideo, FiMic } from "react-icons/fi";
 import { IoExitOutline } from "react-icons/io5";
 import PageHeading from "../../layout/PageHeading";
+import { CallCard } from "../../card";
 
 type Props = {
   heading: string;
@@ -47,25 +48,7 @@ const CallLayout = ({ heading, user: { name }, otherPeople }: Props) => {
       </Flex>
       <Box h="calc(78vh - 84px)" mb="100px" overflow="auto">
         {otherPeople.map(people => (
-          <Box
-            key={people.id}
-            bgColor="cyan"
-            h="324px"
-            w="90%"
-            mb="1rem"
-            mx="auto"
-            borderRadius="xl"
-          >
-            <Box
-              bgColor="white"
-              w="fit-content"
-              borderRadius="xl"
-              px="2"
-              py="1"
-            >
-              <Text color="black">{people.name}</Text>
-            </Box>
-          </Box>
+          <CallCard key={people.id} name={people.name} isAudio isVideo />
         ))}
       </Box>
       <Flex

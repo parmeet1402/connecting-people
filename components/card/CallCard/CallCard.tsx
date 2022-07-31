@@ -6,8 +6,8 @@ const NameAndMicTag = ({
   isAudio,
   name,
 }: {
-  isAudio: boolean;
-  name: string;
+  isAudio?: boolean;
+  name?: string;
 }) => {
   return (
     <Box
@@ -17,7 +17,7 @@ const NameAndMicTag = ({
       px="0.4rem"
       py="0.3rem"
       pos="absolute"
-      bottom="1"
+      bottom="2"
       left="1"
       display="flex"
       alignItems="center"
@@ -63,7 +63,7 @@ const CallCard = ({ name, isAudio, isVideo }: Props) => {
   } = useTheme();
   return (
     <Box
-      bgColor="blackAlpha.800"
+      bgColor="whiteAlpha.200"
       h="324px"
       w="90%"
       mb="1rem"
