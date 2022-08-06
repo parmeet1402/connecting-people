@@ -4,6 +4,7 @@ import { VStack } from "@chakra-ui/react";
 // Components
 import { DashboardLayout } from "../components/layouts";
 import { OptionCard } from "../components/card";
+import { signIn, useSession } from "next-auth/react";
 
 // Types
 type Props = {};
@@ -42,7 +43,7 @@ const getPageOptions = (isLoggedIn: boolean): Option[] => {
     {
       name: "Sign In",
       onClick: () => {
-        console.log("Sign In");
+        signIn();
       },
     },
     {
@@ -56,13 +57,15 @@ const getPageOptions = (isLoggedIn: boolean): Option[] => {
 
 // Components
 const DashboardPage = (props: Props) => {
-  const [isLoggedIn] = useState(false);
+  const { data: session } = useSession();
+  const isLoggedIn = Boolean(session);
+  // const [isLoggedIn] = useState(false);
 
   let pageHeading: string = getPageHeading(isLoggedIn);
   let options: Option[] = getPageOptions(isLoggedIn);
 
   return (
-    <DashboardLayout heading={pageHeading}>
+    <DashboardLayout heading={pageHeading} isLoggedIn={isLoggedIn}>
       <VStack w="88%" mx="auto" gap="2">
         {options.map(({ name, onClick }, index) => (
           <OptionCard key={`${name}-${index}`} name={name} onClick={onClick} />

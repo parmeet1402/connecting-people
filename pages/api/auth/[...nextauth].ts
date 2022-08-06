@@ -24,8 +24,8 @@ const client = DynamoDBDocument.from(new DynamoDB(config), {
 export default NextAuth({
   providers: [
     EmailProvider({
-      server: process.env.NEXT_PUBLIC_EMAIL_SERVER,
-      from: process.env.NEXT_PUBLIC_EMAIL_FROM,
+      server: process.env.EMAIL_SERVER,
+      from: process.env.EMAIL_FROM,
     }),
   ],
   adapter: DynamoDBAdapter(client, {
