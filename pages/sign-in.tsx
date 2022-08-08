@@ -3,26 +3,47 @@ import { FormLayout } from "../components/layouts";
 import {
   Box,
   Input,
+  InputLeftElement,
+  InputGroup,
   Text,
   VStack,
   IconButton,
-  HStack,
+HStack,
   PinInput,
   PinInputField,
 } from "@chakra-ui/react";
 import { FiArrowRight } from "react-icons/fi";
+import { signIn } from "next-auth/react";
 
 type Props = {};
 
-const StepOne = ({ goAhead }: { goAhead: () => void }) => {
+const StepOne = () => {
+  const [mobileNumber, setMobileNumber] = useState("");
+  const handleFormSubmit = () => {
+    // TODO: DO SIGN IN AFTER THE VALUES....
+    signIn("email", {
+      email: `+91${mobileNumber}`,
+      callbackUrl: `${process.env.NEXT_PUBLIC_URL}verify-request?status=loading`,
+    });
+  };
   return (
-    <Box as="form" color="black">
+    <Box as="form" color="black" onSubmit={handleFormSubmit}>
       <VStack pt="12" gap="4" w="90%" mx="auto">
         <VStack alignItems="flex-start" w="100%">
           <Text as="span" mb="0.05rem" color="black" fontWeight="medium">
-            Email
+            Phone
           </Text>
-          <Input borderColor="blackAlpha.700" h="61px" type="email" />
+          <InputGroup>
+            <InputLeftElement pointerEvents="none" h="100%" pl="4">
+              +91
+            </InputLeftElement>
+            <Input
+              borderColor="blackAlpha.700"
+              h="61px"
+              type="tel"
+              maxLength={10}
+            />
+          </InputGroup>
         </VStack>
       </VStack>
       <IconButton
@@ -36,6 +57,7 @@ const StepOne = ({ goAhead }: { goAhead: () => void }) => {
         pos="absolute"
         right="1rem"
         bottom="1rem"
+        type="submit"
       />
     </Box>
   );
@@ -77,15 +99,16 @@ const StepTwo = () => {
 };
 
 const SignInPage = (props: Props) => {
-  const [stepCount, setStepCount] = useState(1);
+  // const [stepCount, setStepCount] = useState(1);
 
-  const goAhead = () => {
-    setStepCount(sc => sc + 1);
-  };
+  // const goAhead = () => {
+  //   setStepCount(sc => sc + 1);
+  // };
   return (
     <FormLayout heading="Sign In">
-      {stepCount === 1 && <StepOne goAhead={goAhead} />}
-      {stepCount === 2 && <StepTwo />}
+      <StepOne />
+      {/* {stepCount === 1 && <StepOne goAhead={goAhead} />} */}
+      {/* {stepCount === 2 && <StepTwo />} */}
     </FormLayout>
   );
 };

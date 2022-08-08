@@ -31,4 +31,7 @@ export default NextAuth({
   adapter: DynamoDBAdapter(client, {
     tableName: process.env.NEXT_AUTH_DB_TABLE as string,
   }),
+  pages: {
+    signIn: "/sign-in",
+  },
 });
